@@ -7,21 +7,21 @@ import { IIngredient } from 'src/app/models/ingredient.model';
   styleUrls: ['./shopping-list-edit.component.scss'],
 })
 export class ShoppingListEditComponent implements OnInit {
+  // DATA PASSED TO PARENT
   @Output() ingredientCreated = new EventEmitter<IIngredient>();
+
+  // FORM INPUTS
+  ingredientValue: string = '';
+  ingredientAmount: string = '';
+
   ingredient: IIngredient = {
     name: '',
     amount: 0,
     fakeIcon: '🆕',
   };
 
-  newIngredient: IIngredient = {
-    name: '',
-    amount: 0,
-    fakeIcon: '🆕',
-  };
-
   setIngredient(name: string, amount: any, fakeIcon: string = '🆕') {
-    return (this.newIngredient = {
+    return (this.ingredient = {
       name,
       amount,
       fakeIcon,
@@ -30,18 +30,18 @@ export class ShoppingListEditComponent implements OnInit {
 
   handleChangeName(event: Event) {
     const e = event.target as HTMLInputElement;
-    this.ingredient.name = e.value;
+    this.ingredientValue = e.value;
   }
 
   handleChangeAmount(event: Event) {
     const e = event.target as HTMLInputElement;
-    this.ingredient.amount = e.value;
+    this.ingredientAmount = e.value;
   }
 
   handleSubmit(event: Event) {
     event.preventDefault();
-    this.setIngredient(this.ingredient.name, this.ingredient.amount);
-    this.ingredientCreated.emit(this.newIngredient);
+    this.setIngredient(this.ingredientValue, this.ingredientAmount);
+    this.ingredientCreated.emit(this.ingredient);
   }
 
   constructor() {}
