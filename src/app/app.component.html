@@ -1,13 +1,8 @@
-<app-header (handleCurrentPage)="setCurrentPage($event)"></app-header>
+<app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div *ngIf="currentURL == 'Recipes'">
-        <app-recipes></app-recipes>
-      </div>
-      <div *ngIf="currentURL === 'ShoppingList'">
-        <app-shopping-list></app-shopping-list>
-      </div>
+    <div class="col-md-12 mt-5">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

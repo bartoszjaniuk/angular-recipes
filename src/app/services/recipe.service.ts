@@ -10,6 +10,7 @@ export class RecipeService {
     'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/kurczak_curry_z_dynia.jpg';
   recipes: Recipe[] = [
     {
+      id: 1,
       name: 'carbonara',
       description: 'forza italia',
       imagePath: this.url,
@@ -19,6 +20,7 @@ export class RecipeService {
       ],
     },
     {
+      id: 2,
       name: 'bolonieze',
       description: 'forza rome',
       imagePath: this.url,
@@ -37,5 +39,11 @@ export class RecipeService {
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
+  }
+
+  getRecipe(id: number): Recipe {
+    const recipe = this.recipes.find((r) => r.id === id);
+    console.log(recipe);
+    return recipe!;
   }
 }

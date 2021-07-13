@@ -1,17 +1,20 @@
 import { Ingredient } from './ingredient.model';
 
 export class Recipe {
+  id: number;
   name: string;
   description: string;
   imagePath: string;
   ingredients: Ingredient[];
 
   constructor(
+    id: number,
     name: string,
     desc: string,
     imagePath: string,
     ingredients: Ingredient[]
   ) {
+    this.id = id;
     this.name = name;
     this.description = desc;
     this.imagePath = imagePath;
@@ -20,7 +23,9 @@ export class Recipe {
 }
 // what is better
 export interface IRecipe {
+  id: number;
   name: string;
   description: string;
   imagePath: string;
+  ingredients: Ingredient[];
 }
