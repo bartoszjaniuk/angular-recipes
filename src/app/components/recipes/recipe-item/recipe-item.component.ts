@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IRecipe } from 'src/app/models/recipe.model';
+import { IRecipe, Recipe } from 'src/app/models/recipe.model';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
@@ -7,12 +8,12 @@ import { IRecipe } from 'src/app/models/recipe.model';
   styleUrls: ['./recipe-item.component.scss'],
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() recipe: IRecipe = { name: '', description: '', imagePath: '' };
-
-  // Można ustawić alias dla @Input elementu
-  // @Input('customRecipeHeHe') recipe: IRecipe = { name: '', description: '', imagePath: '' };
-
-  constructor() {}
+  @Input() recipe!: Recipe;
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {}
+
+  onSelected() {
+    this.recipeService.recipeSelected.emit(this.recipe);
+  }
 }
