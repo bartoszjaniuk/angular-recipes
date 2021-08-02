@@ -6,7 +6,7 @@ export interface IIngredient {
 
 export class Ingredient {
   name: string;
-  amount: string;
+  amount: string | number;
   fakeIcon: string;
 
   constructor(name: string, amount: string, fakeIcon: string) {

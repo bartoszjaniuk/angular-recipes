@@ -8,13 +8,6 @@ import { RecipeService } from './services/recipe.service';
   providers: [],
 })
 export class AppComponent implements OnInit {
-  fakeNavigation = [{ url: 'Recipes' }, { url: 'ShoppingList' }];
-  currentURL: string = 'Recipes';
-
-  setCurrentPage(address: string) {
-    this.currentURL = address;
-  }
-
   constructor() {}
 
   ngOnInit(): void {}

@@ -9,15 +9,33 @@
           highlightColor: 'green',
           highlightDuration: '.7s'
         }"
-        href="#"
         class="list-group-item"
         style="cursor: pointer"
-        *ngFor="let ingredient of ingredients"
-        (click)="deleteIng(ingredient.name)"
+        *ngFor="let ingredient of ingredients; let ingredientIndex = index"
       >
-        {{ ingredient.fakeIcon }} {{ ingredient.name }} ({{
-          ingredient.amount
-        }})
+        <div class="ingredient">
+          <div class="ingredient__content">
+            {{ ingredient.fakeIcon }} {{ ingredient.name }} ({{
+              ingredient.amount
+            }})
+          </div>
+          <div class="btn-group" role="group">
+            <button
+              type="button"
+              class="btn btn-warning"
+              (click)="onEditIngredient(ingredientIndex)"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteIng(ingredient.name)"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
       </a>
     </ul>
   </div>

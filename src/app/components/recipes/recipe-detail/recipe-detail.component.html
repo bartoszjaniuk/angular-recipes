@@ -17,6 +17,7 @@
       <div class="dropdown-menu" #toggleDropdown style="cursor: pointer">
         <a class="dropdown-item">Add to shopping list 📜</a>
         <a class="dropdown-item" (click)="navigateToEditRecipe()">Edit 🧙‍♂️ </a>
+        <a class="dropdown-item" (click)="onDeleteRecipe(recipe.id)">Delete </a>
       </div>
     </div>
   </div>
